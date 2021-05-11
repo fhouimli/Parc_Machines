@@ -3,7 +3,7 @@ def listAllMachines(nomFichier):
     print(fichier.read())
     fichier.close()
 
-#listAllMachines("listMachines.txt")
+#listAllMachines("listMachines2.txt")
 
 class Machines:
     def __init__(self, nom, ip, cpu, ram, ddr, os):
@@ -30,14 +30,17 @@ def addMachine(nomFichier):
     fichier.writelines(machine1.nom+", "+machine1.ip+", "+machine1.cpu+", "+machine1.ram+", "+machine1.ddr+", "+machine1.os+'\n')
     fichier.close()
     
-#addMachine("listMachines.txt")
+#addMachine("listMachines2.txt")
+
 
 def listMachineByHostname(hostname, nomFichier):
-
+    isHostname = False
     fichier = open(nomFichier,"r")
     for ligne in fichier:
         if hostname in ligne:
+            isHostname = True
             print(ligne)
+    if isHostname==False :
+        print("le hostname saisi n'existe pas")
     fichier.close()
-
-listMachineByHostname("nexus", "listMachines.txt")
+#listMachineByHostname("titi", "listMachines.txt")
