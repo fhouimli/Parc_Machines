@@ -1,7 +1,10 @@
 version = '1.0'
 
-task dependances(type:Exec) {
-    println 'hello'
+task purge(type:Delete) {
+  //println 'Cleaning up old files'
+  delete 'build'
+}
+task dependances(type:Exec, dependsOn:purge) {
   executable 'sh'
   args '-c', 'pip3 install flask'
    standardOutput = new ByteArrayOutputStream()
