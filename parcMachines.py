@@ -89,4 +89,20 @@ def modifMachineByHostname(nomFichier):
         print("entrez les nouvelles informations")
         addMachine(nomFichier)
             
-modifMachineByHostname("listMachines.txt")
+#modifMachineByHostname("listMachines.txt")
+
+############Main##################
+nomFichier = "listMachines.txt"
+choix = input("entrer votre choix: 1: afficher toutes les machines, 2: ajouter, 3: afficher par hostname, 4: modifier, 5: supprimer : ")
+if choix == "1":
+    listAllMachines(nomFichier)
+elif choix == "2":
+    addMachine(nomFichier)
+elif choix == "3":
+    listMachineByHostname(nomFichier)
+elif choix == "4":
+    modifMachineByHostname(nomFichier)
+elif choix == "5":
+    deleteMachineByHostname(nomFichier)
+else:
+    print("le choix n'est pas valide ")
