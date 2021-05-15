@@ -1,6 +1,6 @@
 version = '1.0'
 
-task purge(type:Delete) {​​​​​​​
+task purge(type: Delete) {​​​​​​​
   delete 'build'
 }​​​​​​​
 
