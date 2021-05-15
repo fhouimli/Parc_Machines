@@ -1,6 +1,6 @@
 version = '1.0'
 
-task dependances(type:Exec) {​​​​​​​
+dependances(type:Exec) {​​​​​​​
     println 'hello'
   executable 'sh'
   args '-c', 'pip3 install flask'
@@ -12,14 +12,14 @@ task dependances(type:Exec) {​​​​​​​
 def tarfile = "APP_Parc_Machines_V-" + version
 
 
-task packageDistribution(type: Zip, dependsOn: dependances) {​​​​​​​
+packageDistribution(type: Zip, dependsOn: dependances) {​​​​​​​
     from ('parcMachines.py') {​​​​​​​ into '.' }​​​​​​​
     archiveFileName = tarfile + ".zip"
     destinationDirectory = file("build")
 }​​​​​​​
 
 
-task up(type:Exec, dependsOn: packageDistribution) {​​​​​​​
+up(type:Exec, dependsOn: packageDistribution) {​​​​​​​
  executable 'sh'
  args '-c', 'curl -v --user "admin:admin" --upload-file build/archiveFileName http://192.168.0.51:8081/repository/Depot/archiveFileName'
  standardOutput = new ByteArrayOutputStream()
