@@ -2,7 +2,6 @@ version = '1.0'
 
 
 task purge(type:Delete) {​​​​​​​
-  //println 'Cleaning up old files'
   delete 'build'
 }​​​​​​​
 
