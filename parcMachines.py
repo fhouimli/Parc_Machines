@@ -3,8 +3,10 @@ import csv
 
 def listAllMachines(nomFichier):
     fichier = open(nomFichier, "r")
-    print(fichier.read())
+    result = fichier.read()
+    print(result)
     fichier.close()
+    return result
 
 #listAllMachines("listMachines.txt")
 
@@ -48,17 +50,20 @@ def find(hostname, nomFichier):
     return line_found
 
 
-def listMachineByHostname(nomFichier):
-    hostname = input("entrez le nom de la machine: ")
+def listMachineByHostname(hostname):
+    ligne_touvee = ""
+    #hostname = input("entrez le nom de la machine: ")
     isHostname = False
-    fichier = open(nomFichier,"r")
+    fichier = open("listMachines.txt","r")
     for ligne in fichier:
         if hostname in ligne:
             isHostname = True
             print(ligne)
+            ligne_touvee = ligne
     if isHostname == False:
         print("le hostname saisi n'existe pas")
     fichier.close()
+    return ligne_touvee
     
 #listMachineByHostname("listMachines.txt")
 
@@ -91,18 +96,4 @@ def modifMachineByHostname(nomFichier):
             
 #modifMachineByHostname("listMachines.txt")
 
-############Main##################
-nomFichier = "listMachines.txt"
-choix = input("entrer votre choix: 1: afficher toutes les machines, 2: ajouter, 3: afficher par hostname, 4: modifier, 5: supprimer : ")
-if choix == "1":
-    listAllMachines(nomFichier)
-elif choix == "2":
-    addMachine(nomFichier)
-elif choix == "3":
-    listMachineByHostname(nomFichier)
-elif choix == "4":
-    modifMachineByHostname(nomFichier)
-elif choix == "5":
-    deleteMachineByHostname(nomFichier)
-else:
-    print("le choix n'est pas valide ")
+
