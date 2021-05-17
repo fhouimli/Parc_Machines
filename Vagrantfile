@@ -17,11 +17,11 @@ Vagrant.configure('2') do |config|
 				    end
 					
 	            config.vm.provision 'shell', path: 'provision_jenkins.sh'
-                #config.vm.provision "shell", inline: <<-SHELL
-                echo "#nameserver 10.0.2.3
-					   nameserver 8.8.8.8
-					   nameserver 8.8.4.4" > /etc/resolv.conf
-                #SHELL
+#config.vm.provision "shell", inline: <<-SHELL
+echo "#nameserver 10.0.2.3
+nameserver 8.8.8.8
+nameserver 8.8.4.4" > /etc/resolv.conf
+#SHELL
                 end
 end
  
